@@ -1,0 +1,15 @@
+{
+  "name": "memoryprofiling",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Heap.Memory.Size.if.String.Representation.is.used.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "comparison": "node Heap.Memory.Size.if.String.Representation.is.used.js && node once.upon.a.time.in.js && node Heap.Utlized.With.Array.Representaion.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^3.0.0"
+  }
+}
