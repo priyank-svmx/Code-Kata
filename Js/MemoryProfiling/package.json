@@ -5,7 +5,11 @@
   "main": "Heap.Memory.Size.if.String.Representation.is.used.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "comparison": "node Heap.Memory.Size.if.String.Representation.is.used.js && node once.upon.a.time.in.js && node Heap.Utlized.With.Array.Representaion.js"
+    "comparison": "sh comparison.sh",
+    "compare0": "node Memory.Consumption.When.Data.is.Partially.Stringyfied.js ",
+    "compare1": "node Memory.Consumption.When.Data.is.Strigified.js",
+    "compare2": "node Memory.Consumption.When.POJOs.are.used.js ",
+    "COMPARISON": "npm run compare0 && npm run compare1 && npm run compare2"
   },
   "author": "",
   "license": "ISC",
