@@ -1,9 +1,13 @@
+"use strict";
+const randomSentence = require("random-sentence");
+const { PerformanceObserver, performance } = require("perf_hooks");
+
 function testRunner(testedFunction) {
   let AverageValue = 0;
   let i = 0;
   while (i < 10000) {
     AverageValue += testedFunction();
-
+    //console.log(i);
     i++;
   }
   return AverageValue / 10000;
@@ -179,12 +183,41 @@ function RegexTest_ObjectsArray_ShapeVariation_and_Using_ObjectConstructor() {
   return stopTime_ - startTime_;
 }
 
+/** Matching a Regex.test random string on a Object.property value */
+const c$nstruct$r = () => {
+  return {
+    target_property: randomSentence({ word: 1000 }),
+    some_property: randomSentence({ word: 15 })
+  };
+};
+
+const collection = [c$nstruct$r()];
+for (let i = 1; i < 30000; i++) {
+  collection.push(c$nstruct$r());
+}
+
+function regexTest_RandomStringTestOnObjProperty() {
+  const testResults = [];
+
+  const startTime = Date.now();
+  let j = 0;
+  while (j < 30000) {
+    /Some test/.test(collection[j]["target_property"]);
+
+    j++;
+  }
+  let stopTime = Date.now();
+
+  return stopTime - startTime;
+}
+
 module.exports = {
   TestRunner: testRunner,
   RegxTest_WithObjects_ShapeVarAndConstructor: RegexTest_ObjectsArray_ShapeVariation_and_Using_ObjectConstructor,
   RegxTest_WithObjects_ShapeVariation: RegexTest_ObjectsArray_With_Object_ShapeVariation,
   RegxTest_WithObjects_UniformShape: RegexTest_OnObjectsArray,
   RegxTest_WithStringsArray: RegexTest_OnArrayOfStrings,
+  RegxTest_WithObjects_RandomStringValue: regexTest_RandomStringTestOnObjProperty,
   StrMatchTest_WithStringsArray: MatchStringsKeptInAnArray,
   StrMatchTest_OnBigString: StrMatchOnBigString
 };
