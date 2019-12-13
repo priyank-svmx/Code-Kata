@@ -30,6 +30,9 @@ log(
   `Memory - After creating 20k Objects - with 15 properties Each - ${MemoryInUse_MB()}`,
   1
 );
+
+const MemorySecondOrigin = MemoryInUse();
+
 setTimeout(function() {
   const Memory_Used_After_Creating_20k_Objects = MemoryInUse();
   log(
